@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/lucide-icons@latest/dist/umd/lucide.min.js" rel="preload" as="script" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #0d0d0f;
+            color: #e5e5e5;
+        }
+
+        .dashboard {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #111113;
+            padding: 20px;
+            border-right: 1px solid #222;
+        }
+
+        .sidebar-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .menu {
+            list-style: none;
+        }
+
+        .menu a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background-color: #1d1d21;
+            color: #fff;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            padding: 10px 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #1d1d21;
+        }
+
+        .dropdown-content {
+            display: none;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        .dropdown-content.show {
+            display: block;
+        }
+
+        .dropdown-content a {
+            font-size: 0.9rem;
+            padding: 8px 12px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #0d0d0f;
+            position: relative;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .search-bar {
+            width: 50%;
+            padding: 10px 18px;
+            background-color: #1a1a1e;
+            border: 1px solid #333;
+            border-radius: 50px;
+            color: #ddd;
+            outline: none;
+        }
+
+        .search-bar:focus {
+            border-color: #8b5cf6;
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background-color: #1a1a1e;
+            color: #ccc;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn.violet {
+            background-color: #8b5cf6;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .main-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .bottom-bar {
+            background-color: #111113;
+            border-top: 1px solid #222;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 250px;
+            right: 0;
+        }
+
+        .input-bar {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            background-color: #0d0d0f;
+            padding: 8px 15px;
+            border-radius: 50px;
+        }
+
+        .input-bar input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #ccc;
+            outline: none;
+            padding: 5px 10px;
+        }
+
+        .input-bar .icons {
+            display: flex;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: #777;
+        }
+
+        .input-bar .icons span:hover {
+            color: #8b5cf6;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Dashboard</h2>
+
+            <ul class="menu">
+                <li><a href="#" class="active">🏠 Home</a></li>
+
+                <li class="dropdown">
+                    <button class="dropdown-btn">👤 Personas <span>▼</span></button>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">Manage</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <button class="dropdown-btn">⚙️ Attributes <span>▼</span></button>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Preferences</a></li>
+                        <li><a href="#">Manage requests</a></li>
+                        <li><a href="#">Reports</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="topbar">
+                <input type="text" placeholder="Search personas" class="search-bar" />
+                <div class="top-buttons">
+                    <a href="./create_personna.html"> <button class="btn violet">New persona</button></a>
+                    <button class="btn">👥</button>
+                    <button class="btn">✏️</button>
+                </div>
+            </div>
+
+            <!-- Empty dashboard -->
+            <div class="main-area">
+                <p>Nothing to show yet...</p>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bottom-bar">
+                <div class="input-bar">
+                    <input type="text" placeholder="Ask anything" />
+                    <div class="icons">
+                        <span>➕</span>
+                        <span>⚙️</span>
+                        <span>🎙️</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Dropdown toggles
+        document.querySelectorAll('.dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.nextElementSibling.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+
+</html>

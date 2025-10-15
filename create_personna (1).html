@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Persona</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('./backlog.jpeg');
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grid overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Globe effect (simple radial gradient) */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00bfff;
+            border-radius: 15px;
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+        }
+
+        h1 {
+            color: #00bfff;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #00bfff;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            background: rgba(0, 191, 255, 0.1);
+        }
+
+        .avatar::before {
+            content: '+';
+            color: #00bfff;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #00bfff;
+            border-radius: 5px;
+            background: #ffffff;
+            color: #000000;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        select {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .back-btn {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+        }
+
+        .back-btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .next-btn {
+            background: #9370db;
+            color: #ffffff;
+        }
+
+        .next-btn:hover {
+            background: #8a2be2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create Your Persona</h1>
+        <form action="peronal_successfully.html" method="post" enctype="multipart/form-data">
+            <label for="avatarInput" class="avatar">
+                <input type="file" id="avatarInput" name="avatar" accept="image/*" style="display: none;">
+            </label>
+            <div class="form-group">
+                <label for="fullName">Enter Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="personaName">Choose Your Persona Name</label>
+                <input type="text" id="personaName" name="personaName" required>
+            </div>
+            <div class="form-group">
+                <label for="preferredTone">Preferred Tone</label>
+                <select id="preferredTone" name="preferredTone" required>
+                    <option value="">Select a tone</option>
+                    <option value="formal">Formal</option>
+                    <option value="casual">Casual</option>
+                    <option value="professional">Professional</option>
+                    <option value="friendly">Friendly</option>
+                </select>
+            </div>
+            <div class="buttons">
+                <a href="./dashbord.html"><button type="button" class="back-btn">Back</button></a>
+                <a href="./create_personna.html"><button type="submit" class="next-btn">Next</button></a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
